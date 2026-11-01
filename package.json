@@ -1,0 +1,10 @@
+{
+  "name": "aethon-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aethon Chat website (static pages + support form function)",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "nodemailer": "^8.0.11"
+  }
+}

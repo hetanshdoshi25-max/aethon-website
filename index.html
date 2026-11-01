@@ -611,11 +611,28 @@ html.splash-on, html.splash-on body { overflow: hidden; }
 .splash-btn { font: 500 0.78rem/1 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); background: rgba(4,8,11,0.55); border: 1px solid rgba(0,242,255,0.45); border-radius: 999px; padding: 10px 16px; cursor: pointer; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 .splash-btn:hover, .splash-btn:focus-visible { border-color: var(--cyan); color: var(--cyan); outline: none; }
 .splash-bar { position: absolute; left: 0; bottom: 0; height: 2px; width: 0; background: var(--cyan); box-shadow: 0 0 12px var(--cyan); }
+/* Support form: screenshots */
+.flabel { font-size: 0.88rem; color: var(--muted); }
+.flabel small { font-size: 0.8rem; opacity: 0.8; }
+.field label.drop { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border: 1px dashed rgba(0,242,255,0.35); border-radius: 12px; background: var(--ink); color: var(--text); cursor: pointer; font-size: 0.95rem; transition: border-color .2s, background .2s; }
+.drop:hover, .drop.is-over, .drop:focus-within { border-color: var(--cyan); background: rgba(0,242,255,0.05); }
+.drop svg { width: 22px; height: 22px; color: var(--cyan); flex: none; }
+.drop span { display: flex; flex-direction: column; gap: 2px; }
+.drop small { color: var(--muted); font-size: 0.82rem; }
+.drop input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.thumbs { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.thumbs:empty { display: none; }
+.thumbs li { position: relative; width: 92px; height: 64px; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: var(--ink); }
+.thumbs img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.thumbs button { position: absolute; top: 4px; right: 4px; width: 22px; height: 22px; border-radius: 50%; border: 0; background: rgba(4,8,11,0.85); color: var(--text); font: 600 14px/22px var(--font-body); cursor: pointer; padding: 0; }
+.thumbs button:hover { color: var(--cyan); }
+.hp { position: absolute !important; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+#cSend[disabled] { opacity: 0.6; cursor: wait; }
 </style>
 </head>
 <body>
 <div class="splash" id="splash" role="dialog" aria-label="Aethon Chat intro video">
-  <video id="splashVideo" src="aethon-intro.mp4" poster="aethon-intro-poster.jpg" muted playsinline preload="auto"></video>
+  <video id="splashVideo" src="aethon-intro.mp4?v=2" poster="aethon-intro-poster.jpg?v=2" muted playsinline preload="auto"></video>
   <div class="splash-ctrl">
     <button class="splash-btn" id="splashSound" type="button">Sound on</button>
     <button class="splash-btn" id="splashSkip" type="button">Skip intro</button>
@@ -742,7 +759,7 @@ html.splash-on, html.splash-on body { overflow: hidden; }
       <p>It understands natural speech in more than 100 languages, including mixes like Hinglish, sees your screen or camera when you ask, and keeps a memory of the things you tell it, so it gets more useful the more you use it.</p>
       <div class="facts">
         <div><b>35+</b><span>actions it can take on your PC</span></div>
-        <div><b>6</b><span>natural voices to choose from</span></div>
+        <div><b>3 days</b><span>free trial, every feature on</span></div>
         <div><b>100+</b><span>languages it understands</span></div>
       </div>
     </div>
@@ -869,8 +886,9 @@ html.splash-on, html.splash-on body { overflow: hidden; }
       <h2>See how different people use it</h2>
     </div>
     <div class="uc">
-      <div class="uc-tabs" id="ucTabs" role="tablist" aria-label="Who uses Aethon Chat"><button role="tab" type="button" id="uc-tab-student" aria-controls="uc-student" aria-selected="true" tabindex="0"><b>Students</b><span>Lectures, notes, deadlines</span></button><button role="tab" type="button" id="uc-tab-pro" aria-controls="uc-pro" aria-selected="false" tabindex="-1"><b>Professionals</b><span>Meetings, mail, focus</span></button><button role="tab" type="button" id="uc-tab-ca" aria-controls="uc-ca" aria-selected="false" tabindex="-1"><b>CA firms</b><span>Audit files and workpapers</span></button><button role="tab" type="button" id="uc-tab-creator" aria-controls="uc-creator" aria-selected="false" tabindex="-1"><b>Creators</b><span>Content, research, music</span></button></div>
-      <div><div class="uc-panel spot" role="tabpanel" id="uc-student" aria-labelledby="uc-tab-student"><h3>A study day with Aethon Chat</h3><p>Less time switching apps, more time studying.</p><ul class="uc-day"><li><time>08:30</time><div><q>Give me my morning briefing</q><small>Headlines, the time and today's pending tasks</small></div></li><li><time>10:00</time><div><q>Summarise this PDF for my exam</q><small>Key points from the chapter you loaded</small></div></li><li><time>15:30</time><div><q>Explain this diagram on my screen</q><small>Looks at the diagram and explains it simply</small></div></li><li><time>21:00</time><div><q>Remember that the lab journal is due Friday</q><small>Saved, and it reminds you on your phone too</small></div></li></ul></div><div class="uc-panel spot" role="tabpanel" id="uc-pro" aria-labelledby="uc-tab-pro" hidden><h3>A workday with Aethon Chat</h3><p>Hands-free control while you keep your attention on the work.</p><ul class="uc-day"><li><time>09:15</time><div><q>Start focus mode</q><small>Keeps distractions away while you work</small></div></li><li><time>11:00</time><div><q>Summarise this meeting recording</q><small>Clean notes with decisions and action items</small></div></li><li><time>14:30</time><div><q>Type: I will share the draft by 5 pm</q><small>Types the reply into the open window</small></div></li><li><time>18:45</time><div><q>Send a WhatsApp message to Priya saying I am leaving now</q><small>Sent from WhatsApp Desktop</small></div></li></ul></div><div class="uc-panel spot" role="tabpanel" id="uc-ca" aria-labelledby="uc-tab-ca" hidden><h3>An audit day with Aethon Chat</h3><p>The Audit Files workspace does the extraction and checks; your team makes every judgement.</p><ul class="uc-day"><li><time>10:00</time><div><q>Upload the trial balance and ledger</q><small>Data extracted from Excel or PDF, every value linked to its source</small></div></li><li><time>11:30</time><div><q>Run the audit checks</q><small>Duplicate invoices, out-of-period entries, round amounts and more</small></div></li><li><time>15:00</time><div><q>Reconcile the bank statement</q><small>Matches entries and shows what is left over</small></div></li><li><time>17:30</time><div><q>Draft the workpaper</q><small>Ready for review; only a reviewer can approve it</small></div></li></ul></div><div class="uc-panel spot" role="tabpanel" id="uc-creator" aria-labelledby="uc-tab-creator" hidden><h3>A creator day with Aethon Chat</h3><p>Ideas, research and your playlist, without leaving the edit.</p><ul class="uc-day"><li><time>10:30</time><div><q>Play lo-fi music on YouTube</q><small>Background music while you edit</small></div></li><li><time>12:00</time><div><q>Find a video that explains colour grading</q><small>Searches YouTube for you</small></div></li><li><time>16:00</time><div><q>Write a caption for this reel about our launch</q><small>A draft you can tweak and paste</small></div></li><li><time>19:30</time><div><q>Read me the top headlines</q><small>Stay current without opening ten tabs</small></div></li></ul></div></div>
+      <div class="uc-tabs" id="ucTabs" role="tablist" aria-label="Who uses Aethon Chat"><button role="tab" type="button" id="uc-tab-student" aria-controls="uc-student" aria-selected="true" tabindex="0"><b>Students</b><span>Lectures, notes, deadlines</span></button><button role="tab" type="button" id="uc-tab-pro" aria-controls="uc-pro" aria-selected="false" tabindex="-1"><b>Professionals</b><span>Meetings, mail, focus</span></button><button role="tab" type="button" id="uc-tab-creator" aria-controls="uc-creator" aria-selected="false" tabindex="-1"><b>Creators</b><span>Content, research, music</span></button><button role="tab" type="button" id="uc-tab-everyday" aria-controls="uc-everyday" aria-selected="false" tabindex="-1"><b>Everyday users</b><span>Movies, food, games</span></button></div>
+      <div><div class="uc-panel spot" role="tabpanel" id="uc-student" aria-labelledby="uc-tab-student"><h3>A study day with Aethon Chat</h3><p>Less time switching apps, more time studying.</p><ul class="uc-day"><li><time>08:30</time><div><q>Give me my morning briefing</q><small>Headlines, the time and today's pending tasks</small></div></li><li><time>10:00</time><div><q>Summarise this PDF for my exam</q><small>Key points from the chapter you loaded</small></div></li><li><time>15:30</time><div><q>Explain this diagram on my screen</q><small>Looks at the diagram and explains it simply</small></div></li><li><time>21:00</time><div><q>Remember that the lab journal is due Friday</q><small>Saved, and it reminds you on your phone too</small></div></li></ul></div><div class="uc-panel spot" role="tabpanel" id="uc-pro" aria-labelledby="uc-tab-pro" hidden><h3>A workday with Aethon Chat</h3><p>Hands-free control while you keep your attention on the work.</p><ul class="uc-day"><li><time>09:15</time><div><q>Start focus mode</q><small>Keeps distractions away while you work</small></div></li><li><time>11:00</time><div><q>Summarise this meeting recording</q><small>Clean notes with decisions and action items</small></div></li><li><time>14:30</time><div><q>Type: I will share the draft by 5 pm</q><small>Types the reply into the open window</small></div></li><li><time>18:45</time><div><q>Send a WhatsApp message to Priya saying I am leaving now</q><small>Sent from WhatsApp Desktop</small></div></li></ul></div><div class="uc-panel spot" role="tabpanel" id="uc-creator" aria-labelledby="uc-tab-creator" hidden><h3>A creator day with Aethon Chat</h3><p>Ideas, research and your playlist, without leaving the edit.</p><ul class="uc-day"><li><time>10:30</time><div><q>Play lo-fi music on YouTube</q><small>Background music while you edit</small></div></li><li><time>12:00</time><div><q>Find a video that explains colour grading</q><small>Searches YouTube for you</small></div></li><li><time>16:00</time><div><q>Write a caption for this reel about our launch</q><small>A draft you can tweak and paste</small></div></li><li><time>19:30</time><div><q>Read me the top headlines</q><small>Stay current without opening ten tabs</small></div></li></ul></div>
+<div class="uc-panel spot" role="tabpanel" id="uc-everyday" aria-labelledby="uc-tab-everyday" hidden><h3>A day off with Aethon Chat</h3><p>Plans, food and fun, sorted with one sentence.</p><ul class="uc-day"><li><time>12:00</time><div><q>Book two movie tickets for tonight</q><small>Finds the shows on BookMyShow, then hands you the payment page</small></div></li><li><time>13:30</time><div><q>Order me some food, I'm hungry</q><small>Finds dishes on Swiggy or Zomato and stops before payment for you</small></div></li><li><time>17:00</time><div><q>Let's play a game</q><small>Opens Game Mode right inside Aethon Chat</small></div></li><li><time>21:30</time><div><q>Call Mom</q><small>Places the call from your linked phone</small></div></li></ul></div></div>
     </div>
   </div>
 </section>
@@ -885,7 +903,7 @@ html.splash-on, html.splash-on body { overflow: hidden; }
     <div class="compare-wrap">
       <table class="compare">
         <thead><tr><th scope="col">What you need</th><th scope="col">Typical chat app</th><th scope="col" class="us">Aethon Chat</th></tr></thead>
-        <tbody><tr><td>Talk to it in real time and interrupt it</td><td>Mostly typing</td><td class="us"><span class="yes">Yes</span> <small style="color:var(--muted)">· Live voice, six voices</small></td></tr><tr><td>Opens apps and controls your PC</td><td><span class="no">No</span></td><td class="us"><span class="yes">Yes</span> <small style="color:var(--muted)">· 35+ actions</small></td></tr><tr><td>Looks at your screen when you ask</td><td>Paste a screenshot yourself</td><td class="us"><span class="yes">Yes</span> <small style="color:var(--muted)">· One sentence</small></td></tr><tr><td>Remembers you on phone and PC</td><td>Varies</td><td class="us"><span class="yes">Yes</span> <small style="color:var(--muted)">· Forget anything on request</small></td></tr><tr><td>Movies and food, up to the payment page</td><td><span class="no">No</span></td><td class="us"><span class="yes">Yes</span> <small style="color:var(--muted)">· You always pay yourself</small></td></tr><tr><td>Uses your own Gemini API key</td><td><span class="no">No</span></td><td class="us"><span class="yes">Yes</span> <small style="color:var(--muted)">· Requests go straight to Google</small></td></tr></tbody>
+        <tbody><tr><td>Talk to it in real time and interrupt it</td><td>Mostly typing</td><td class="us"><span class="yes">Yes</span> <small style="color:var(--muted)">· Live voice, interrupt any time</small></td></tr><tr><td>Opens apps and controls your PC</td><td><span class="no">No</span></td><td class="us"><span class="yes">Yes</span> <small style="color:var(--muted)">· 35+ actions</small></td></tr><tr><td>Looks at your screen when you ask</td><td>Paste a screenshot yourself</td><td class="us"><span class="yes">Yes</span> <small style="color:var(--muted)">· One sentence</small></td></tr><tr><td>Remembers you on phone and PC</td><td>Varies</td><td class="us"><span class="yes">Yes</span> <small style="color:var(--muted)">· Forget anything on request</small></td></tr><tr><td>Movies and food, up to the payment page</td><td><span class="no">No</span></td><td class="us"><span class="yes">Yes</span> <small style="color:var(--muted)">· You always pay yourself</small></td></tr><tr><td>Uses your own Gemini API key</td><td><span class="no">No</span></td><td class="us"><span class="yes">Yes</span> <small style="color:var(--muted)">· Requests go straight to Google</small></td></tr></tbody>
       </table>
     </div>
   </div>
@@ -1017,7 +1035,7 @@ html.splash-on, html.splash-on body { overflow: hidden; }
         <p class="sub">Pay as you go, cancel any time</p>
         <div class="price"><span class="amt">₹299</span><span class="per">/ month</span></div>
         <p style="color:var(--muted);font-size:.92rem">₹3,588 over a full year</p>
-        <ul class="ticks"><li><span>Real-time voice with six voices, in 100+ languages</span></li><li><span>Opens apps, types and controls your PC</span></li><li><span>Sees your screen and camera when you ask</span></li><li><span>Memory and tasks synced with your phone</span></li><li><span>Movie tickets, food orders, WhatsApp and calls</span></li><li><span>Gesture control, documents and meeting notes</span></li><li><span>All updates included</span></li></ul>
+        <ul class="ticks"><li><span>Real-time voice in 100+ languages</span></li><li><span>Opens apps, types and controls your PC</span></li><li><span>Sees your screen and camera when you ask</span></li><li><span>Memory and tasks synced with your phone</span></li><li><span>Movie tickets, food orders, WhatsApp and calls</span></li><li><span>Gesture control, documents and meeting notes</span></li><li><span>All updates included</span></li></ul>
         <a class="btn btn-ghost" href="#download">Start free trial</a>
       </article>
       <article class="plan best spot">
@@ -1027,7 +1045,7 @@ html.splash-on, html.splash-on body { overflow: hidden; }
         <div class="price"><s>₹3,588</s><span class="amt">₹2,999</span><span class="per">/ year</span></div>
         <span class="save">You save ₹589 (16% off)</span>
         <p style="color:var(--muted);font-size:.92rem;margin-top:-6px">Works out to about ₹250 a month</p>
-        <ul class="ticks"><li><span>Real-time voice with six voices, in 100+ languages</span></li><li><span>Opens apps, types and controls your PC</span></li><li><span>Sees your screen and camera when you ask</span></li><li><span>Memory and tasks synced with your phone</span></li><li><span>Movie tickets, food orders, WhatsApp and calls</span></li><li><span>Gesture control, documents and meeting notes</span></li><li><span>All updates included</span></li></ul>
+        <ul class="ticks"><li><span>Real-time voice in 100+ languages</span></li><li><span>Opens apps, types and controls your PC</span></li><li><span>Sees your screen and camera when you ask</span></li><li><span>Memory and tasks synced with your phone</span></li><li><span>Movie tickets, food orders, WhatsApp and calls</span></li><li><span>Gesture control, documents and meeting notes</span></li><li><span>All updates included</span></li></ul>
         <a class="btn btn-primary" href="#download">Start free trial</a>
       </article>
     </div>
@@ -1147,7 +1165,7 @@ html.splash-on, html.splash-on body { overflow: hidden; }
             <p>A Gemini API key is like a SIM card. It gives you access to Google's AI, but on its own it cannot do anything on your computer. Aethon Chat is the phone that the SIM goes into.</p>
             <ul class="ans-list">
               <li><strong>It acts, not just talks.</strong> Gemini alone can only reply with text or speech. Aethon Chat turns your words into more than 35 real actions on your PC: opening apps, typing, controlling windows, volume and music, sending WhatsApp messages and placing calls from your phone.</li>
-              <li><strong>Real-time voice, ready to use.</strong> Talk naturally, interrupt it mid-sentence and choose from six voices. With only a key, you would have to build the microphone, speaker and streaming code yourself.</li>
+              <li><strong>Real-time voice, ready to use.</strong> Talk naturally and interrupt it mid-sentence, just like a real conversation. With only a key, you would have to build the microphone, speaker and streaming code yourself.</li>
               <li><strong>It sees when you ask.</strong> Say "what's on my screen?" and it looks. No screenshots to take, crop and upload.</li>
               <li><strong>It remembers you.</strong> Memories, tasks and preferences follow you between your PC and your phone. A raw key forgets everything after each request.</li>
               <li><strong>Ready-made assistants.</strong> Movie shows, food orders, news briefings, focus mode, meeting notes, document questions and Audit Files for CA firms are already built in.</li>
@@ -1159,13 +1177,14 @@ html.splash-on, html.splash-on body { overflow: hidden; }
           <details><summary>Which languages does it understand?</summary><div class="ans"><p>Aethon Chat understands <strong>more than 100 languages</strong>, powered by Google Gemini. Speak in English, Hindi, Marathi, Gujarati, Tamil, Telugu, Bengali, Spanish, French, Arabic, Japanese and many more, or mix them the way people really talk, like Hinglish. It replies in the language you use.</p><p>Voice replies sound most natural in widely spoken languages; for less common ones, the on-screen text is the most accurate.</p></div></details>
           <details><summary>Can I cancel my subscription?</summary><div class="ans"><p>Yes, at any time. Cancel before your next billing date and you will not be charged again. You keep access until the end of the period you already paid for.</p></div></details>
           <details><summary>Does it work on Mac or Linux?</summary><div class="ans"><p>Not yet. The desktop app is Windows only for now. Aethon Chat for Android is coming soon on Google Play.</p></div></details>
-          <details><summary>Can I change the voice?</summary><div class="ans"><p>Yes. There are six voices, male and female, each with its own name and personality. Pick one in the app's settings.</p></div></details>
+          <details><summary>Can I change the voice?</summary><div class="ans"><p>Not yet. Aethon is the only assistant available right now. More voices and assistants are coming in a future update, and you will be able to pick one in the app's settings.</p></div></details>
         </div>
         <div role="tabpanel" id="faq-privacy" aria-labelledby="tab-privacy" hidden>
           <details open><summary>Is Aethon Chat always listening?</summary><div class="ans"><p>No. It listens while a conversation is active, after you tap the orb. End the session and the microphone is released.</p></div></details>
           <details><summary>Does it watch my screen all the time?</summary><div class="ans"><p>No. It captures your screen only when your request is about the screen, for example "what's on my screen" or "explain this message".</p></div></details>
           <details><summary>Can Aethon Chat spend my money?</summary><div class="ans"><p>No. For movies and food it prepares everything and then hands the payment page to you. It never enters card details or confirms a payment.</p></div></details>
           <details><summary>Where is my API key stored?</summary><div class="ans"><p>In a settings file on your own PC. It is sent only to Google with each request.</p></div></details>
+          <details><summary>Can anyone see my chat history or my API key? Are they ever made public?</summary><div class="ans"><p><strong>No.</strong> Your conversation history and your Gemini API key stay on your own computer. They are never published, sold or shared, and no one at Aethon Chat can see them. Your key is sent only to Google, with each request, so Gemini can reply to you.</p><p>The only things kept in your account are your sign-in details and the memories you ask Aethon Chat to save, so they can sync to your phone. Only you can see them. Read more in our <a href="privacy.html">Privacy Policy</a>.</p></div></details>
         </div>
         <div role="tabpanel" id="faq-install" aria-labelledby="tab-install" hidden>
           <details open><summary>Why does Windows say it protected my PC?</summary><div class="ans"><p>Windows shows this for new apps that are not yet widely downloaded. Click <code>More info</code> and then <code>Run anyway</code>. You only see it once.</p></div></details>
@@ -1201,6 +1220,7 @@ html.splash-on, html.splash-on body { overflow: hidden; }
           <li>Movie and food booking now use Microsoft Edge or Chrome, with nothing extra to install.</li>
           <li>The app starts faster, restarts its engine if it ever stops, and opens links in your normal browser.</li>
           <li>Updates are checked in the background, also while the app stays open.</li>
+          <li>Aethon is the only assistant available for now. More assistants and voices will be available soon.</li>
         </ul>
       </div>
       <div class="rel">
@@ -1237,7 +1257,7 @@ html.splash-on, html.splash-on body { overflow: hidden; }
             <li>Your Windows version (10 or 11)</li>
             <li>What you said or clicked</li>
             <li>What happened, and what you expected</li>
-            <li>A screenshot, if you can attach one to the email</li>
+            <li>A screenshot, attach it right in the form</li>
           </ul>
         </div>
         <div class="sup">
@@ -1260,9 +1280,19 @@ html.splash-on, html.splash-on body { overflow: hidden; }
         </div>
       </div>
       <div class="biz-hint" id="bizHint" hidden><span>For business enquiries, our Business Support form gets you a faster reply.</span><a class="btn btn-ghost" href="#business-contact" style="padding:8px 14px;font-size:.88rem">Go to Business Support</a></div>
-      <div class="field"><label for="cMsg">Message</label><textarea id="cMsg" name="message" required placeholder="What happened, and what did you expect?"></textarea></div>
+      <div class="field"><label for="cMsg">Message</label><textarea id="cMsg" name="message" required maxlength="5000" placeholder="What happened, and what did you expect?"></textarea></div>
+      <div class="field">
+        <span class="flabel">Screenshots <small>(optional, up to 3 images)</small></span>
+        <label class="drop" id="cDrop" for="cFiles">
+          <input id="cFiles" type="file" accept="image/png,image/jpeg,image/webp" multiple>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.4 11.1-9.2 9.2a6 6 0 0 1-8.5-8.5l9.2-9.2a4 4 0 0 1 5.7 5.7l-9.2 9.2a2 2 0 0 1-2.8-2.8l8.5-8.5"/></svg>
+          <span><b>Attach screenshots</b><small>Click to choose, drag them here, or paste with Ctrl+V</small></span>
+        </label>
+        <ul class="thumbs" id="cThumbs" aria-label="Attached screenshots"></ul>
+      </div>
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
       <p class="consent">By sending, you agree to our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms and Conditions</a>.</p>
-      <button class="btn btn-primary" type="submit" style="align-self:flex-start">Open in my email app</button>
+      <button class="btn btn-primary" id="cSend" type="submit" style="align-self:flex-start">Send message</button>
       <p class="form-note" id="formNote" aria-live="polite"></p>
     </form>
   </div>
@@ -1422,13 +1452,69 @@ html.splash-on, html.splash-on body { overflow: hidden; }
   }
   const topicSel = $('#cTopic'), bizHint = $('#bizHint');
   topicSel.addEventListener('change', () => { bizHint.hidden = topicSel.value !== 'Business enquiry'; });
-  $('#contactForm').addEventListener('submit', (e) => {
+  /* screenshots: pick, drop or paste; shrunk in the browser before sending */
+  const MAX_SHOTS = 3, shots = [];
+  const cFiles = $('#cFiles'), cDrop = $('#cDrop'), cThumbs = $('#cThumbs');
+  function shrink(file) {
+    return new Promise((resolve, reject) => {
+      const url = URL.createObjectURL(file), img = new Image();
+      img.onload = () => {
+        const k = Math.min(1, 1920 / Math.max(img.naturalWidth, img.naturalHeight));
+        const c = document.createElement('canvas');
+        c.width = Math.round(img.naturalWidth * k); c.height = Math.round(img.naturalHeight * k);
+        const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.drawImage(img, 0, 0, c.width, c.height);
+        URL.revokeObjectURL(url);
+        resolve(c.toDataURL('image/jpeg', 0.85));
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('bad image')); };
+      img.src = url;
+    });
+  }
+  function drawShots() {
+    cThumbs.innerHTML = shots.map((sh, i) => `<li><img src="${sh.url}" alt="Screenshot ${i + 1}"><button type="button" data-i="${i}" aria-label="Remove screenshot ${i + 1}">&times;</button></li>`).join('');
+  }
+  async function addShots(list) {
+    const note = $('#formNote');
+    for (const file of Array.from(list || [])) {
+      if (!/^image\/(png|jpe?g|webp)$/.test(file.type)) { note.textContent = 'Only PNG, JPG or WebP images can be attached.'; continue; }
+      if (shots.length >= MAX_SHOTS) { note.textContent = `You can attach up to ${MAX_SHOTS} screenshots.`; break; }
+      if (file.size > 15 * 1024 * 1024) { note.textContent = 'That image is too large. Try a smaller screenshot.'; continue; }
+      try { shots.push({ url: await shrink(file) }); note.textContent = ''; } catch (_) { note.textContent = 'That image could not be read. Try another one.'; }
+    }
+    drawShots();
+  }
+  cFiles.addEventListener('change', () => { addShots(cFiles.files); cFiles.value = ''; });
+  cThumbs.addEventListener('click', (e) => { const b = e.target.closest('button[data-i]'); if (b) { shots.splice(+b.dataset.i, 1); drawShots(); } });
+  ['dragenter', 'dragover'].forEach((t) => cDrop.addEventListener(t, (e) => { e.preventDefault(); cDrop.classList.add('is-over'); }));
+  ['dragleave', 'drop'].forEach((t) => cDrop.addEventListener(t, () => cDrop.classList.remove('is-over')));
+  cDrop.addEventListener('drop', (e) => { e.preventDefault(); addShots(e.dataTransfer && e.dataTransfer.files); });
+  $('#contactForm').addEventListener('paste', (e) => {
+    const files = Array.from((e.clipboardData && e.clipboardData.files) || []).filter((f) => f.type.startsWith('image/'));
+    if (files.length) { e.preventDefault(); addShots(files); }
+  });
+
+  $('#contactForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const f = e.currentTarget, note = $('#formNote');
+    const f = e.currentTarget, note = $('#formNote'), btn = $('#cSend');
     const name = field(f, 'name'), email = field(f, 'email'), msg = field(f, 'message'), topic = field(f, 'topic'), win = field(f, 'windows');
     if (!name || !email || !msg) { note.textContent = 'Please fill in your name, email and message.'; return; }
     if (!emailOk(email)) { note.textContent = 'That email address looks incomplete. Check it and try again.'; return; }
-    openMail(`[Aethon Chat Support] ${topic}`, `${msg}\n\n---\nTopic: ${topic}\nWindows: ${win}\nFrom: ${name} <${email}>`, note);
+    btn.disabled = true; btn.textContent = 'Sending...'; note.textContent = '';
+    try {
+      const res = await fetch('/api/support', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, topic, windows: win, message: msg, website: field(f, 'website'),
+          files: shots.map((sh) => ({ type: 'image/jpeg', data: sh.url.split(',')[1] })) }),
+      });
+      if (!res.ok) throw new Error('status ' + res.status);
+      f.reset(); shots.length = 0; drawShots(); bizHint.hidden = true;
+      note.textContent = `Thanks, ${name}. Your message has been sent. We will reply to ${email}.`;
+    } catch (_) {
+      openMail(`[Aethon Chat Support] ${topic}`, `${msg}\n\n---\nTopic: ${topic}\nWindows: ${win}\nFrom: ${name} <${email}>`, note);
+      if (shots.length) note.textContent = `We couldn't send it from here, so your email app is opening instead. Please attach your screenshots there before sending. If it doesn't open, write to ${CONTACT_EMAIL}.`;
+    } finally {
+      btn.disabled = false; btn.textContent = 'Send message';
+    }
   });
   $('#bizForm').addEventListener('submit', (e) => {
     e.preventDefault();
