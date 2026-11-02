@@ -98,7 +98,7 @@ header.doc { background: none; }
 <header class="doc"><div class="wrap">
   <p class="eyebrow">Legal</p>
   <h1>Privacy Policy</h1>
-  <p class="meta"><span>Effective 30 October 2026</span><span>Version 1.0</span><span>Applies to the app, the Android app and this website</span></p>
+  <p class="meta"><span>Effective 30 October 2026 · updated 2 November 2026</span><span>Version 1.1</span><span>Applies to the app, the Android app and this website</span></p>
 </div></header>
 <div class="wrap layout">
   <nav class="toc" aria-label="Contents"><b>Contents</b><a href="#who">1. Who we are</a><a href="#collect">2. What we collect and why</a><a href="#never">3. What we never do</a><a href="#basis">4. Legal basis</a><a href="#share">5. Who we share data with</a><a href="#transfer">6. Data outside India</a><a href="#retention">7. How long we keep data</a><a href="#security">8. How we protect data</a><a href="#rights">9. Your rights</a><a href="#children">10. Children</a><a href="#health">11. Health information</a><a href="#changes">12. Changes to this policy</a><a href="#contact">13. Contact and grievances</a></nav>
@@ -107,6 +107,7 @@ header.doc { background: none; }
 <li>Your voice, screen and camera go <strong>straight from your device to Google</strong> using your own API key. We do not store them.</li>
 <li>Your Gemini API key stays <strong>on your device</strong>. We never receive it.</li>
 <li>We keep only your account, the memories you ask us to save and what you send to support.</li>
+<li>Apps you connect (Gmail, Google Calendar, GitHub, Notion, Slack) are used <strong>only when you ask</strong>. Your sign-in for them stays <strong>encrypted on your phone</strong>, and nothing is sent or created without your yes.</li>
 <li>We <strong>never sell</strong> your data, never use it to train AI, and never make payments for you.</li>
 <li>You can see, correct or delete your data at any time by writing to us.</li>
 </ul></div>
@@ -154,9 +155,20 @@ header.doc { background: none; }
 <li><strong>GitHub</strong>: hosts the app installer and update files.</li>
 <li><strong>Our payment provider</strong>: processes subscription payments.</li>
 <li><strong>Our email provider</strong> (Google Gmail): receives support and business messages.</li>
+<li><strong>Our website host</strong> (Vercel): runs the support form and the connector sign-in step described below. It does not store your content.</li>
 </ul>
 <p>We may also disclose data when Indian law requires it, to respond to a valid legal order, or to protect the rights and safety of our users or the public. If Aethon Chat is ever merged or sold, your data would move only under a policy at least as protective as this one, and we would tell you first.</p>
-<p>Apps and websites that Aethon Chat opens for you, such as Spotify, YouTube, WhatsApp, movie and food platforms, are run by other companies under their own privacy policies.</p><h2 id="transfer"><span class="n">06</span>Data outside India</h2>
+<p>Apps and websites that Aethon Chat opens for you, such as Spotify, YouTube, WhatsApp, movie and food platforms, are run by other companies under their own privacy policies.</p>
+<h3 id="connected-apps">Connected apps (Gmail, Google Calendar, GitHub, Notion, Slack)</h3>
+<p>In the Android app you can connect other apps in <strong>Settings → Connectors</strong>. Connecting is always your choice and you can disconnect at any time.</p>
+<ul>
+<li><strong>How you connect:</strong> you sign in on the app's own page (for example Google's). Aethon Chat never sees your password. Our website only swaps the one-time sign-in code for an access token (this step needs a secret that cannot be stored in the phone app), encrypts the token with a key that only your phone has, and passes it straight back to your phone. Our servers do not keep the token or any of your content.</li>
+<li><strong>Where it is kept:</strong> the access token is stored in your phone's encrypted storage. Uninstalling the app or tapping Disconnect removes it. You can also remove Aethon Chat's access in your Google account (Security → Your connections to third-party apps), GitHub, Notion or Slack settings.</li>
+<li><strong>What Aethon Chat reads, and when:</strong> only what you ask for, at the moment you ask – for example your unread emails, today's calendar events, your open pull requests, a Notion page or a Slack channel. To answer you, that content is sent to Google Gemini under your own API key, in the same way as any other request.</li>
+<li><strong>Actions:</strong> sending an email, creating a calendar event, opening an issue, creating a page or posting a message is always shown to you first and happens only after you say yes.</li>
+<li><strong>What we never do with it:</strong> we do not sell it, use it for advertising, use it to train AI models, or let people read it. We do not move it to any other service except as described here.</li>
+<li><strong>Google user data:</strong> Aethon Chat's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.</li>
+</ul><h2 id="transfer"><span class="n">06</span>Data outside India</h2>
 <p>Some of our providers store or process data on servers outside India. We transfer data only to countries that are not restricted by the Government of India under the DPDP Act, and we choose providers that protect data with industry-standard security.</p><h2 id="retention"><span class="n">07</span>How long we keep data</h2>
 <ul>
 <li><strong>Account data and memories</strong>: for as long as your account is active. When you delete your account, we delete it within 30 days, except what we must keep by law.</li>
