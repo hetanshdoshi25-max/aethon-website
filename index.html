@@ -530,6 +530,7 @@ main:focus { outline: none; }
 .foot-legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.88rem; }
 .foot-legal nav { display: flex; flex-wrap: wrap; gap: 20px; }
 .foot-legal a { color: var(--text); }
+.foot-legal .biz { flex-basis: 100%; margin: 0; font-size: 0.82rem; line-height: 1.6; }
 
 @media (max-width: 1180px) { .nav-links { gap: 20px; } }
 @media (max-width: 980px) {
@@ -1119,7 +1120,7 @@ html.splash-on, html.splash-on body { overflow: hidden; }
       <div class="side">
         <h3 class="biz-sub" style="margin:0">Talk to our business team</h3>
         <p>Tell us a little about your team and what you want to automate. We aim to reply to business enquiries within one working day.</p>
-        <div class="mailrow"><span class="addr js-mail">aethonchat@gmail.com</span><button class="copy js-copymail" type="button">Copy</button></div>
+        <div class="mailrow"><span class="addr js-mail">support@aethonchat.com</span><button class="copy js-copymail" type="button">Copy</button></div>
         <p style="font-size:.9rem">Please mention "Business" in the subject if you write to us directly.</p>
       </div>
       <form class="contact" id="bizForm" novalidate>
@@ -1249,7 +1250,7 @@ html.splash-on, html.splash-on body { overflow: hidden; }
       <div class="support-cards">
         <div class="sup">
           <h3>Email support</h3>
-          <div class="mailrow"><span class="addr js-mail" id="mailAddr">aethonchat@gmail.com</span><button class="copy js-copymail" id="copyMail" type="button">Copy</button></div>
+          <div class="mailrow"><span class="addr js-mail" id="mailAddr">support@aethonchat.com</span><button class="copy js-copymail" id="copyMail" type="button">Copy</button></div>
         </div>
         <div class="sup">
           <h3>To help us fix it faster, tell us</h3>
@@ -1305,7 +1306,7 @@ html.splash-on, html.splash-on body { overflow: hidden; }
     <nav aria-label="Footer"><a href="https://www.instagram.com/aethonchat" target="_blank" rel="noopener">Instagram @aethonchat</a><a href="#features">Features</a><a href="#setup">Setup</a><a href="#faq">FAQ</a><a href="#contact">Support</a><a href="#changelog">Changelog</a></nav>
   </div>
   <div class="wrap">
-    <div class="foot-legal"><p>© <span id="year">2026</span> Aethon Chat. All rights reserved.</p><nav aria-label="Legal"><a href="terms.html">Terms and Conditions</a><a href="privacy.html">Privacy Policy</a></nav></div>
+    <div class="foot-legal"><p>© <span id="year">2026</span> Aethon Chat. All rights reserved.</p><nav aria-label="Legal"><a href="terms.html">Terms and Conditions</a><a href="privacy.html">Privacy Policy</a></nav><p class="biz">Aethon Chat is a sole proprietorship of Hetansh Ankur Doshi · GSTIN: 27KHMPD5856C1Z2 · Mumbai, Maharashtra, India · <a href="mailto:support@aethonchat.com">support@aethonchat.com</a></p></div>
   </div>
 </footer>
 
@@ -1317,7 +1318,7 @@ html.splash-on, html.splash-on body { overflow: hidden; }
 (() => {
   'use strict';
   const RELEASES_API = 'https://api.github.com/repos/hetanshdoshi25-max/aethon-releases/releases/latest';
-  const CONTACT_EMAIL = 'aethonchat@gmail.com';
+  const CONTACT_EMAIL = 'support@aethonchat.com';
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => Array.from(el.querySelectorAll(s));
